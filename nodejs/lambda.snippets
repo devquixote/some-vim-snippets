@@ -1,5 +1,5 @@
 snippet .hello-world
-	exports.handler = function(event, context, callback) {
+	exports.handler = (event, context, callback) => {
 	  console.log('event: ' + JSON.stringify(event, null, 2));
 
 	  var payload = JSON.parse(event.body);
@@ -8,8 +8,8 @@ snippet .hello-world
 	  context.succeed('Hello, World!');
 	}
 
-snippet .api.hello-world
-	exports.handler = function(event, context, callback) {
+snippet .hello-world-api-gateway
+	exports.handler = (event, context, callback) => {
 	  console.log('event: ' + JSON.stringify(event, null, 2));
 
 	  var payload = JSON.parse(event.body);
@@ -23,12 +23,3 @@ snippet .api.hello-world
 
 	  callback(null, response);
 	}
-
-snippet .log
-	console.log("${1}");
-
-snippet .json.parse
-	JSON.parse(${1})${2}
-
-snippet .json.stringify
-	JSON.stringify(${1}, null, 2)${2}

@@ -1,0 +1,22 @@
+snippet .log
+	console.log("${1}");
+
+snippet .json.parse
+	JSON.parse(${1})${2}
+
+snippet .json.stringify
+	JSON.stringify(${1}, null, 2)${2}
+
+snippet .function
+	function ${1}(${2}) {
+	  ${3:// TODO}
+	}
+
+snippet .fn
+	(${1}) => {$2}$3
+
+snippet .var
+	var ${1:name} = ${2:value};
+
+snippet .const
+	const ${1:name} = ${2:value};

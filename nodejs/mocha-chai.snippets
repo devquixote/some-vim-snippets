@@ -1,0 +1,47 @@
+snippet .chai-expect
+	const expect = require('chai').expect;
+
+snippet .new
+	const expect = require('chai').expect;
+
+	describe("something", () => {
+	  it("should fail", (done) => {
+	    expect(true).to.be(false);
+	  });
+	});
+
+snippet .describe
+	describe("${1:something}", () => {
+	  ${2:// TODO}
+	});
+
+snippet .it
+	it("${1:something}", (done) => {
+	  ${2:// TODO}
+	});
+
+snippet .beforeEach
+	beforeEach((done) => {
+	  ${1:// TODO}
+	});
+
+snippet .afterEach
+	afterEach((done) => {
+	  ${1:// TODO}
+	});
+
+snippet .before
+	before((done) => {
+	  ${1:// TODO}
+	});
+
+snippet .after
+	after((done) => {
+	  ${1:// TODO}
+	});
+
+snippet .expect-to-equal
+	expect(${1:true}).to.equal(${2:true});
+
+snippet .expect-to-not-equal
+	expect(${1:true}).to.not.equal(${2:false});
