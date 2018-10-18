@@ -1,0 +1,13 @@
+snippet .log
+	console.log("${1}");
+
+snippet .log-json
+	console.log(JSON.stringify(${what}, null, 2));
+
+snippet .fn
+	(${1:args}) => {${2:body}}
+
+snippet .function
+	function ${1:name}(${2:args}) {
+	  ${3:body}
+	}

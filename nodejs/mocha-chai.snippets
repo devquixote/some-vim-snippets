@@ -6,7 +6,9 @@ snippet .new
 
 	describe("something", () => {
 	  it("should fail", (done) => {
-	    expect(true).to.be(false);
+	    expect(true).to.equal(false);
+
+	    done();
 	  });
 	});
 
@@ -18,26 +20,36 @@ snippet .describe
 snippet .it
 	it("${1:something}", (done) => {
 	  ${2:// TODO}
+
+	  done();
 	});
 
 snippet .beforeEach
 	beforeEach((done) => {
 	  ${1:// TODO}
+
+	  done();
 	});
 
 snippet .afterEach
 	afterEach((done) => {
 	  ${1:// TODO}
+
+	  done();
 	});
 
 snippet .before
 	before((done) => {
 	  ${1:// TODO}
+
+	  done();
 	});
 
 snippet .after
 	after((done) => {
 	  ${1:// TODO}
+
+	  done();
 	});
 
 snippet .expect-to-equal
