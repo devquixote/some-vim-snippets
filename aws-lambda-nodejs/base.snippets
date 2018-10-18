@@ -1,0 +1,69 @@
+extends nodejs
+
+snippet .new
+	exports.handler = (event, context, callback) => {
+	  console.log('event: ' + JSON.stringify(event, null, 2));
+
+	  var payload = JSON.parse(event.body);
+	  console.log('payload: ' + JSON.stringify(payload, null, 2));
+
+	  context.succeed('Hello, World!');
+	}
+
+snippet .new-api-gateway
+	exports.handler = (event, context, callback) => {
+	  console.log('event: ' + JSON.stringify(event, null, 2));
+
+	  var payload = JSON.parse(event.body);
+	  console.log('payload: ' + JSON.stringify(payload, null, 2));
+
+	  var response = {
+	    statusCode: 200,
+	    headers: {"Content-Type": "application/json"},
+	    body: JSON.stringify({message: "Hello, World!"}, null, 2)
+	  };
+
+	  callback(null, response);
+	}
+
+snippet .config
+	const config = {
+	  application: process.env.APPLICATION,
+	  version: APPLICATION_VERSION,
+	  environment: process.env.ENVIRONMENT,
+	  scope: process.env.SCOPE,
+	  awsRegion: process.env.AWS_REGION,
+	  awsAccount: process.env.AWS_ACCOUNT
+	};
+
+snippet .logjammer:config
+	LogJammer.config.applicaton = ${1};
+	LogJammer.config.origin.environment = ${2};
+	LogJammer.config.origin.scope = ${3};
+	LogJammer.config.origin.aws_account = ${4};
+	LogJammer.config.origin.aws_region = ${5};
+
+snippet .logjammer:logger
+	const ${1:logger} = LogJammer.logger('${2:main}');
+
+snippet .logjammer:config-logger
+	logger.applicaton = ${1};
+	logger.origin.environment = ${2};
+	logger.origin.scope = ${3};
+	logger.origin.aws_account = ${4};
+	logger.origin.aws_region = ${5};
+
+snippet .debug-log
+	${1:logger}.debug("${2:message}", () => ({${3}}));
+
+snippet .info-log
+	${1:logger}.info("${2:message}", () => ({${3}}));
+
+snippet .warn-log
+	${1:logger}.warn("${2:message}", () => ({${3}}), ${4:error});
+
+snippet .error-log
+	${1:logger}.error("${2:message}", () => ({${3}}), ${4:error});
+
+snippet .fatal-log
+	${1:logger}.fatal("${2:message}", () => ({${3}}), ${4:error});
