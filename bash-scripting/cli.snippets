@@ -1,0 +1,52 @@
+snippet .cli
+	set -euo pipefail
+
+	function error() {
+	  echo 1>&2 "ERROR: \$@"
+	  echo
+	  help
+	  exit 1
+	}
+
+	function help() {
+	  cat <<EOF
+	Usage: ${1:command} [OPTIONS...]
+
+	Description
+
+	Options:
+	  --arg
+	    description
+
+	  --verbose
+	    Include verbose details of what is being run by the command
+
+	  -h/--help
+	    Display this help message
+	EOF
+	}
+
+	function main() {
+	  local arg=""
+	  local verbose=false
+
+	  while [[ \${#} -gt 0 ]]; do
+	    case "\${1}" in
+	      --arg)              arg="\${2}"; shift;;
+	      --verbose)          verbose=true;;
+	      -h|--help)          help; exit 0;;
+	      --)                 break;;
+	      -*)                 error "Unrecognized option \${1}";;
+	    esac
+	    shift
+	  done
+
+	  if [ "\${verbose}" = true ]; then
+	    set -o xtrace
+	  fi
+
+	  echo "arg: \${arg}"
+	}
+
+	main "\$@"
+
