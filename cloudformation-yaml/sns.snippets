@@ -1,0 +1,30 @@
+snippet .sns:Topic
+	${1:logical-name}:
+	  Type: AWS::SNS::Topic
+	  Properties:
+	    TopicName: TODO
+	    DisplayName: TODO
+	    Subscription:
+	      - Protocol: TODO
+	        Endpoint: TODO
+
+snippet .sns:Subscription
+	${1:logical-name}:
+	  Type: AWS::SNS::Subscription
+	  Properties:
+	    TopicArn: TODO
+	    Protocol: TODO
+	    Endpoint: TODO
+	    #DeliveryPolicy: TODO
+	    #FilterPolicy: TODO
+	    #RawMessageDelivery: TODO
+	    #Region: TODO
+
+snippet .sns:TopicPolicy
+	${1:logical-name}:
+	  Type: AWS::SNS::TopicPolicy
+	  Properties:
+	    Topics:
+	      - TODO
+	    PolicyDocument: TODO
+

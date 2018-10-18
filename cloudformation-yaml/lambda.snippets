@@ -1,0 +1,13 @@
+snippet .sqs:Queue
+	${1:logical-name}:
+	  Type: AWS::SQS::Queue
+	  Properties:
+	    QueueName: TODO
+
+snippet .sqs:QueuePolicy
+	${1:logical-name}:
+	  Type: AWS::SQS::QueuePolicy
+	  Properties:
+	    Queues:
+	      - TODO
+	    PolicyDocument: TODO

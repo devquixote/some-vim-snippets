@@ -1,0 +1,70 @@
+extends yaml
+
+snippet .new
+	AWSTemplateFormatVersion: "${1:2010-09-09}"
+
+	Description: >
+	  Write me
+
+	Metadata:
+	  # add metadata
+
+	Parameters:
+	  # add parameters
+
+	Mappings:
+	  # add mapping
+
+	Conditions:
+	  # add conditions
+
+	Resources:
+	  # add resources
+
+	Outputs:
+	  # add outputs
+
+snippet .base:param
+	${1:name}:
+	  Type: TODO
+	  Description: >
+	    TODO
+	  #Default: TODO
+	  #AllowedValues:
+	  #  - TODO
+
+snippet .base:param-string
+	${1:name}:
+	  Type: String
+	  Description: >
+	    TODO
+	  #Default: TODO
+	  #MinLength: TODO
+	  #MaxLength: TODO
+	  #AllowedPattern: TODO
+	  #AllowedValues:
+	  #  - TODO
+
+snippet .base:param-number
+	${1:name}:
+	  Type: Number
+	  Description: >
+	    TODO
+	  #Default: TODO
+	  #MinValue: TODO
+	  #MaxValue: TODO
+	  #AllowedValues:
+	  #  - TODO
+
+snippet .base:resource
+	${1:logical-id}
+	  Type: ${2:type}
+	  Properties:
+	    ${3:# TODO}
+
+snippet .base:output
+	${1:logical-id}:
+	  Value: TODO
+	  #Description: TODO
+	  #Export:
+	  #  Name: TODO

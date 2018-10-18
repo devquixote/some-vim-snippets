@@ -1,0 +1,63 @@
+# Functions
+snippet .fn:ref
+	!Ref ${0:RESOURCE}
+
+snippet .fn:gat
+	!GetAtt ${1:TARGET}.${2:ATTR}
+
+snippet .fn:sub
+	!Sub ${1:STRING}
+
+snippet .fn:sub+
+	!Sub |
+	  ${1}
+
+snippet .fn:join
+	!Join [ ${1:DELIM}, [ ${2:VALUES} ] ]
+
+snippet .fn:fim
+	!FindInMap [ ${1:ELEMENTS} ]
+
+snippet .fn:split
+	!Split
+	  - ${1:delimeter}
+	  - ${2:string}
+
+snippet .fn:import-value
+	!ImportValue ${1:stack-output}
+
+snippet .fn:get-azs
+	!GetAZs ${1:region}
+
+snippet .fn:select
+	!Select
+	  - ${1:index}
+	  - ${2:list}
+
+snippet .fn:base-64
+	Fn::Base64: !Sub ${1:string}
+
+snippet .fn:==
+	!Equals
+	  - ${1:VALUE}
+	  - ${2:VALUE}
+
+snippet .fn:!
+	!Not
+	  - ${1:CONDITION}
+
+snippet .fn:if
+	!If
+	  - ${1:CONDITION}
+	  - ${2:TRUE_CASE}
+	  - ${3:FALSE_CASE}
+
+snippet .fn:&&
+	!And
+	  - ${1:condition}
+	  - ${2:condition}
+
+snippet .fn:||
+	!Or
+	  - ${1:condition}
+	  - ${2:condition}
